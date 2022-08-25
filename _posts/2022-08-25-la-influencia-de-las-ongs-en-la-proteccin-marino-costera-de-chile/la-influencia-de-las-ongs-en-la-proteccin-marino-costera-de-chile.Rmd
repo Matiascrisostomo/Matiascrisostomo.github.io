@@ -9,6 +9,8 @@ date: 2022-08-25
 output:
   distill::distill_article:
     self_contained: false
+editor_options: 
+  chunk_output_type: console
 ---
 El rol de las ONG's en la protección marino costera y su relación con la mitigación de los impactos del cambio climático
 
@@ -20,4 +22,13 @@ Distill is a publication format for scientific and technical writing, native to 
 
 Learn more about using Distill at <https://rstudio.github.io/distill>.
 
+#hay q usar Rmarkdown
+
+[LAPOP]
+
+´´´{r paquetes, warning=FALSE, message=FALSE}
+library(tidyverse
+library(sjmisc)
+library(haven)
+library(kableExtra)
 
