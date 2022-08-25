@@ -1,16 +1,17 @@
 ---
-title: "Segundo paso"
+title: "el rol de las ONG en la conservación marina"
 description: |
   A short description of the post.
-author:dis
+author:
   - name: Nora Jones
     url: https://example.com/norajones
-date: 2022-08-19
+date: 2022-08-25
 output:
   distill::distill_article:
     self_contained: false
 ---
-Hola, lo logramos!
+En este espacio analizaremos el rol y la importancia que juegan las ONG's en la conservación y el desarrollo de los recursos marinos en la zona costera de Chile
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

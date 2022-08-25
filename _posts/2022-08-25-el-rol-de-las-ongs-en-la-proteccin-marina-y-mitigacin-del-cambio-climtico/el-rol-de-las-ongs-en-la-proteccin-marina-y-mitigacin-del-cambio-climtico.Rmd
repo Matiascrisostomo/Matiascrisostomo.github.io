@@ -1,16 +1,16 @@
 ---
-title: "Segundo paso"
+title: "El rol de las ONG's en la protección marina y mitigación del cambio climático"
 description: |
   A short description of the post.
-author:dis
+author:
   - name: Nora Jones
     url: https://example.com/norajones
-date: 2022-08-19
+date: 2022-08-25
 output:
   distill::distill_article:
     self_contained: false
 ---
-Hola, lo logramos!
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
