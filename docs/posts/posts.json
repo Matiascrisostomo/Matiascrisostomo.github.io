@@ -31,7 +31,7 @@
     "contents": "\nEl rol de las ONG’s en la protección marino costera y su relación con\nla mitigación de los impactos del cambio climático\nDistill is a publication format for scientific and technical writing,\nnative to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n#hay q usar Rmarkdown\n[LAPOP]\n´´´{r paquetes, warning=FALSE, message=FALSE} library(tidyverse\nlibrary(sjmisc) library(haven) library(kableExtra)\n\n\n\n",
     "preview": {},
     "last_modified": "2022-08-25T19:43:36-04:00",
-    "input_file": "la-influencia-de-las-ongs-en-la-proteccin-marino-costera-de-chile.knit.md"
+    "input_file": {}
   },
   {
     "path": "posts/2022-08-19-segundo-paso/",
