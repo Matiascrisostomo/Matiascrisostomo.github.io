@@ -1,0 +1,49 @@
+## Tarea
+
+Una de las formas de aprender a usar R, es simplemente aprender a buscar lo que necesitamos usar. Algunos de las funciones las hemos visto en clases, pero siempre pueden buscar otras formas de lograr los mismos resultados.
+
+Con los materiales que hemos visto, vamos a realizar gráficos exploratorios:
+
+Carga de bases de datos:
+
+```{r}
+Misdatos<-read_rds("vdem_subset.rds")
+```
+
+### Histograma
+
+```{r}
+ggplot(Misdatos,aes(v2x_partipdem))+
+  geom_histogram()+
+theme_linedraw()+
+  geom_histogram(color = "#00b4d8", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(title = "Figura 1. Histograma de participación activa de los ciudadanos en los procesos políticos, tanto electorales como no-electorales.", x = "participación activa de los ciudadanos en los procesos políticos, tanto electorales como no-electorales.", y = "Frecuencia")
+```
+
+### Gráfico de barras
+
+```{r}
+ ggplot(Misdatos,aes(as_factor(e_regionpol))) +
+  geom_bar(color = "#00b4d8", fill = "#457b9d", alpha = 0.4) + # Colores
+  scale_x_discrete(labels = function(Misdatos) str_wrap(Misdatos, width = 07)) +
+  labs(title = "Figura 2. Gráfico de barras de participación activa de los ciudadanos en los procesos políticos, tanto electorales como no-electorales.",
+       x = "participación activa de los ciudadanos en los procesos políticos, tanto electorales como no-electorales", y = "Frecuencia")
+```
+
+### Boxplot
+
+```{r}
+ggplot(Misdatos,aes(e_regionpol,e_peedgini))+
+  geom_boxplot()+
+  labs(title = "Figura 3. Boxplot de Inequidad educacional. Estimador, promedio de diferentes fuentes de información vs Clasificación regional de los países basados en su posición política-geográfica.", x = "Clasificación regional de los países basados en su posición política-geográfica.", y = "Inequidad educacional. Estimador, promedio de diferentes fuentes de información")
+```
+
+### Scatterplot
+
+
+```{r}
+
+ggplot(Misdatos,mapping= aes(x= e_regionpol,y= e_peedgini))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Figura 4. Scatterplot de Inequidad educacional. Estimador, promedio de diferentes fuentes de información vs Clasificación regional de los países basados en su posición política-geográfica.", x = "Clasificación regional de los países basados en su posición política-geográfica.", y = "Inequidad educacional. Estimador, promedio de diferentes fuentes de información")
