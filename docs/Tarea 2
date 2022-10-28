@@ -1,0 +1,81 @@
+Hipótesis: La inequidad educacional influenciará la participación política.
+
+Modelo simple:
+
+```{r}
+vdem <- readRDS("vdem_subset.rds")
+lm(v2x_partipdem~1+e_peedgini, data = vdem)
+modelo_1 <- lm(v2x_partipdem~1+e_peedgini, data = vdem)
+class("modelo_1")
+summary("modelo_1")
+screenreg(modelo_1)
+vdem %>%
+  ggplot(aes(x = e_peedgini, y = v2x_partipdem)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F, color = "00b4d8") +
+  labs(x = "Inequidad educacional", y = "Participación política")
+
+```
+
+Modelo lineal multiple:
+
+```{r}
+modelo_1 <- lm(v2x_partipdem~1+e_peedgini, data = vdem)
+modelo_2 <- lm(v2x_partipdem~1+e_peedgini+ e_regionpol, data = vdem)
+modelo_3 <- lm (v2x_partipdem~1+e_peedgini+ e_regionpol+ v2psprlnks, data = vdem)
+modelos <- list(modelo_1,modelo_2,modelo_3)
+screenreg(modelos)
+ggplot(mapping = aes(x = modelo_1$fitted.values, y = modelo_1$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+ggplot(mapping = aes(x = modelo_2$fitted.values, y = modelo_2$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+ggplot(mapping = aes(x = modelo_3$fitted.values, y = modelo_3$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+car::residualPlots(modelo_1)
+car::residualPlots(modelo_2)
+car::residualPlots(modelo_3)
+```
+
+Evaluación de supuestos:
+
+```{r}
+ggplot(vdem,aes(v2x_partipdem))+
+  geom_histogram()+
+theme_linedraw()+
+  geom_histogram(color = "#00b4d8", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(title = "Figura 6. Histograma de participación en procesos política", x = "participación procesos políticos", y = "Frecuencia")
+
+ggplot(vdem,aes(e_peedgini))+
+  geom_histogram()+
+theme_linedraw()+
+  geom_histogram(color = "#1d3557", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(title = "Figura 7. Histograma de Inequidad educacional.", x = "Inequidad educacional", y = "Frecuencia")
+
+ggplot(vdem,aes(e_regionpol))+
+  geom_histogram()+
+theme_linedraw()+
+  geom_histogram(color = "#1d3557", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(title = "Figura 8. Histograma de Clasificación regional de los países basados en su posición política-geográfica.", x = "Clasificación regional de los países basados en su posición política-geográfica.", y = "Frecuencia")
+
+ggplot(vdem,aes(v2psprlnks))+
+  geom_histogram()+
+theme_linedraw()+
+  geom_histogram(color = "#1d3557", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(title = "Figura 9. Histograma de Forma de vínculo entre los partidos y sus votantes.", x = "Forma de vínculo entre los partidos y sus votantes.", y = "Frecuencia")
+
+ggplot(vdem,mapping= aes(x= e_regionpol,y= e_peedgini))+
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Figura 4. Scatterplot de Inequidad educacional. Estimador, promedio de diferentes fuentes de información vs Clasificación regional de los países basados en su posición política-geográfica.", x = "Clasificación regional de los países basados en su posición política-geográfica.", y = "Inequidad educacional. Estimador, promedio de diferentes fuentes de información")
+
+plot(modelo_1, which = 1)
+plot(modelo_2, which = 1)
+plot(modelo_3, which = 1)
+
+qqnorm(estimadores_obs$residual)

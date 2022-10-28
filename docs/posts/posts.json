@@ -1,22 +1,5 @@
 [
   {
-    "path": "posts/2022-08-25-el-rol-de-las-ong-en-la-conservacin-marina/",
-    "title": "el rol de las ONG en la conservación marina",
-    "description": "A short description of the post.",
-    "author": [
-      {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
-      }
-    ],
-    "date": "2022-08-25",
-    "categories": [],
-    "contents": "\nEn este espacio analizaremos el rol y la importancia que juegan las\nONG’s en la conservación y el desarrollo de los recursos marinos en la\nzona costera de Chile\nDistill is a publication format for scientific and technical writing,\nnative to the web.\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
-    "preview": {},
-    "last_modified": "2022-08-25T19:04:12-04:00",
-    "input_file": {}
-  },
-  {
     "path": "posts/2022-08-25-la-influencia-de-las-ongs-en-la-proteccin-marino-costera-de-chile/",
     "title": "La influencia de las ONG's en la protección marino costera de Chile",
     "description": "A short description of the post.",
