@@ -88,635 +88,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>My Blog</title>
+  <title>Estimating and modelling the relation between climate change, governance, and GDP</title>
+
+  <meta property="description" itemprop="description" content="Avance de proyecto final."/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-11-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-11-02"/>
+  <meta name="article:author" content="Nora Jones"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="My Blog"/>
+  <meta property="og:title" content="Estimating and modelling the relation between climate change, governance, and GDP"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Avance de proyecto final."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="My Blog"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="My Blog"/>
+  <meta property="twitter:title" content="Estimating and modelling the relation between climate change, governance, and GDP"/>
+  <meta property="twitter:description" content="Avance de proyecto final."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["My Blog"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Estimating and modelling the relation between climate change, governance, and GDP"]},{"type":"character","attributes":{},"value":["Avance de proyecto final.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2022-11-02"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["chunk_output_type"]}},"value":[{"type":"character","attributes":{},"value":["console"]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["avance_files/anchor-4.2.2/anchor.min.js","avance_files/bowser-1.9.3/bowser.min.js","avance_files/distill-2.2.21/template.v2.js","avance_files/header-attrs-2.16/header-attrs.js","avance_files/jquery-3.6.0/jquery-3.6.0.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.map","avance_files/popper-2.6.0/popper.min.js","avance_files/tippy-6.2.7/tippy-bundle.umd.min.js","avance_files/tippy-6.2.7/tippy-light-border.css","avance_files/tippy-6.2.7/tippy.css","avance_files/tippy-6.2.7/tippy.umd.min.js","avance_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
   <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
-  </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
-  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
-  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-
-  <script type="application/javascript">
-
-  function getMeta(metaName) {
-    var metas = document.getElementsByTagName('meta');
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-    return '';
-  }
-
-  function offsetURL(url) {
-    var offset = getMeta('distill:offset');
-    return offset ? offset + '/' + url : url;
-  }
-
-  function createFuseIndex() {
-
-    // create fuse index
-    var options = {
-      keys: [
-        { name: 'title', weight: 20 },
-        { name: 'categories', weight: 15 },
-        { name: 'description', weight: 10 },
-        { name: 'contents', weight: 5 },
-      ],
-      ignoreLocation: true,
-      threshold: 0
-    };
-    var fuse = new window.Fuse([], options);
-
-    // fetch the main search.json
-    return fetch(offsetURL('search.json'))
-      .then(function(response) {
-        if (response.status == 200) {
-          return response.json().then(function(json) {
-            // index main articles
-            json.articles.forEach(function(article) {
-              fuse.add(article);
-            });
-            // download collections and index their articles
-            return Promise.all(json.collections.map(function(collection) {
-              return fetch(offsetURL(collection)).then(function(response) {
-                if (response.status === 200) {
-                  return response.json().then(function(articles) {
-                    articles.forEach(function(article) {
-                      fuse.add(article);
-                    });
-                  })
-                } else {
-                  return Promise.reject(
-                    new Error('Unexpected status from search index request: ' +
-                              response.status)
-                  );
-                }
-              });
-            })).then(function() {
-              return fuse;
-            });
-          });
-
-        } else {
-          return Promise.reject(
-            new Error('Unexpected status from search index request: ' +
-                        response.status)
-          );
-        }
-      });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-
-    // get search element (bail if we don't have one)
-    var searchEl = window.document.getElementById('distill-search');
-    if (!searchEl)
-      return;
-
-    createFuseIndex()
-      .then(function(fuse) {
-
-        // make search box visible
-        searchEl.classList.remove('hidden');
-
-        // initialize autocomplete
-        var options = {
-          autoselect: true,
-          hint: false,
-          minLength: 2,
-        };
-        window.autocomplete(searchEl, options, [{
-          source: function(query, callback) {
-            const searchOptions = {
-              isCaseSensitive: false,
-              shouldSort: true,
-              minMatchCharLength: 2,
-              limit: 10,
-            };
-            var results = fuse.search(query, searchOptions);
-            callback(results
-              .map(function(result) { return result.item; })
-            );
-          },
-          templates: {
-            suggestion: function(suggestion) {
-              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
-                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
-                : '';
-              var html = `
-                <div class="search-item">
-                  <h3>${suggestion.title}</h3>
-                  <div class="search-item-description">
-                    ${suggestion.description || ''}
-                  </div>
-                  <div class="search-item-preview">
-                    ${img}
-                  </div>
-                </div>
-              `;
-              return html;
-            }
-          }
-        }]).on('autocomplete:selected', function(event, suggestion) {
-          window.location.href = offsetURL(suggestion.path);
-        });
-        // remove inline display style on autocompleter (we want to
-        // manage responsive display via css)
-        $('.algolia-autocomplete').css("display", "");
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-  });
-
-  </script>
-
-  <style type="text/css">
-
-  .nav-search {
-    font-size: x-small;
-  }
-
-  /* Algolioa Autocomplete */
-
-  .algolia-autocomplete {
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: sub;
-    background-color: white;
-    color: black;
-    padding: 6px;
-    padding-top: 8px;
-    padding-bottom: 0;
-    border-radius: 6px;
-    border: 1px #0F2E3D solid;
-    width: 180px;
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-nav .algolia-autocomplete {
-      display: none;
-      visibility: hidden;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete {
-      display: inline-block;
-      visibility: visible;
-    }
-    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
-      margin-left: 0;
-      width: 400px;
-      max-height: 400px;
-    }
-  }
-
-  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-    width: 90%;
-    outline: none;
-    border: none;
-  }
-
-  .algolia-autocomplete .aa-hint {
-    color: #999;
-  }
-  .algolia-autocomplete .aa-dropdown-menu {
-    width: 550px;
-    max-height: 70vh;
-    overflow-x: visible;
-    overflow-y: scroll;
-    padding: 5px;
-    margin-top: 3px;
-    margin-left: -150px;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #999;
-    border-top: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-    cursor: pointer;
-    padding: 5px 4px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
-    overflow: hidden;
-    font-size: 0.8em;
-    line-height: 1.4em;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
-    font-size: 1rem;
-    margin-block-start: 0;
-    margin-block-end: 5px;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
-    display: inline-block;
-    overflow: hidden;
-    height: 2.8em;
-    width: 80%;
-    margin-right: 4%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
-    display: inline-block;
-    width: 15%;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
-    height: 3em;
-    width: auto;
-    display: none;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
-    display: initial;
-  }
-
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-    background-color: #eee;
-  }
-  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  </style>
-
-
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -2064,266 +1468,369 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="avance_files/header-attrs-2.16/header-attrs.js"></script>
+  <script src="avance_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="avance_files/popper-2.6.0/popper.min.js"></script>
+  <link href="avance_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="avance_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="avance_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="avance_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="avance_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="avance_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="avance_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"My Blog","authors":[]}
+{"title":"Estimating and modelling the relation between climate change, governance, and GDP","description":"Avance de proyecto final.","authors":[{"author":"Nora Jones","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-11-02T00:00:00.000-03:00","citationText":"Jones, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">My Blog</a>
-<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="My Blog">My Blog</h1>
-<a href="posts/2022-11-02-avance/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 2, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Nora Jones</div>
-</div>
-</div>
-<div class="thumbnail"></div>
-<div class="description">
-<h2>Estimating and modelling the relation between climate change, governance, and GDP</h2>
-<div class="dt-tags"></div>
-<p>Avance de proyecto final.</p>
-</div>
-</a>
-<a href="posts/2022-08-25-la-influencia-de-las-ongs-en-la-proteccin-marino-costera-de-chile/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 25, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Nora Jones</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>La influencia de las ONG's en la protección marino costera de Chile</h2>
-<div class="dt-tags"></div>
-<p>A short description of the post.</p>
-</div>
-</a>
-<a href="posts/2022-08-19-segundo-paso/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 19, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Nora Jones</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Segundo paso</h2>
-<div class="dt-tags"></div>
-<p>A short description of the post.</p>
-</div>
-</a>
-<a href="posts/welcome/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 19, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Nora Jones</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Welcome to My Blog</h2>
-<div class="dt-tags"></div>
-<p>Welcome to our new blog, My Blog. We hope you enjoy 
-reading what we have to say!</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>My Blog</h1>
+<h1>Estimating and modelling the relation between climate change, governance, and GDP</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Avance de proyecto final.</p></p>
 </div>
 
+<div class="d-byline">
+  Nora Jones <a href="https://example.com/norajones"
+class="uri">https://example.com/norajones</a> 
+  
+<br/>2022-11-02
+</div>
 
 <div class="d-article">
+<p>Estimating and modelling the relation between climate change,
+governance, and GDP</p>
+<p>Estimating and modelling the relation between climate change,
+governance, and GDP</p>
+<p>Abstract.</p>
+<p>Climate change has been impacting the development from different
+countries around the globe, including the GDP, Gini index, and private
+investments, among others. Therefore, policymakers and governments are
+playing a crucial role to mitigate these impacts through the creation
+and implementation of plans and policies, consequently, enhancing the
+human welfare, population income, and livelihoods. Regarding to ND- GAIN
+Index, this article aims to analyze in 182 countries the relation
+between the readiness of governance, climate change vulnerability, and
+GDP, outlining how these variables influence each other. The structure
+has been proposed to simplify the reading. It has been divided in
+context and background, methodology, and discussion, which includes the
+results.</p>
+<p>Keywords: GDP (Gross Domestic Product), climate change vulnerability,
+governance readiness.</p>
+<p>Introduction.</p>
+<p>During the last decades the cumulative impacts of climate change has
+been increasing, affecting different global ecosystems (Claudet et al.,
+2020; Cogan, 2003), playing a fundamental role in human wellbeing and
+development. Regarding climate change, various countries are facing
+diverse challenges to adapt (Chen et al., 2015), such as sea-level rises
+and extreme weather events (Kompas et al., 2018; United Nations, 2018),
+consequently, worldwide governments and stakeholders are increasing
+efforts to mitigate these impacts, generating and strengthen policies,
+strategies, and programs in a local, regional, and global scale.
+Additionally, the climate change effects has demonstrate to impact in
+global economy in a considerable manner (Tol, 2002; Hilmi et al., 2021).
+These impacts are different in every country, some of them are more
+vulnerable than others, especially those depending (their livelihood,
+economy, and wellbeing) on nature and their ecosystem services.</p>
+<p>The hypothesis of this article has been defined as: H_1 A country GDP
+will be affected detrimentally by the country climate change
+vulnerability and governance readiness level. H_0 A country GDP will not
+be affected detrimentally by the country climate change vulnerability
+and governance readiness level.</p>
+<p>Context and background.</p>
+<p>It has been mentioned that the impact of climate change on poor
+populations represents a minor part of national wealth, being classified
+many times as invisible (measuring them on GDP). Managing and assessing
+the vulnerability against climate change requires specific data,
+studies, and metrics (Hallegate et al., 2018). It has always been
+attracting for policymakers to estimates and understand the economic
+impacts of climate change. Nevertheless, most of the time, these
+estimates have been studied in terms of global GDP or the impact on
+country-level (Arent et al., 2014), not considering how climate change
+affects human well-being, specially to most developing countries. The
+value of mitigation and the impacts on human wellbeing will determine
+the distribution of climate change impacts (Dennig et al., 2015).
+However, the global distribution of climate change impacts is
+heterogeneous, not only within countries throughout the globe, also over
+income classes and occupations (Hallegate et al., 2018). Furthermore,
+considering and using only the global GDP as a variable to measure the
+impacts of climate change could probably increase the skew of the study
+(Mendelsohn et al., 2000; Tol, 2002; Hope, 2006; Mendelsohn et al.,
+2006; Stern, 2006; Tol, 2009; Nordhaus, 2014; Hsiang et al., 2017;
+Hallegate et al., 2018). Study climate change impacts on GDP requires a
+different approach, focused on governance and vulnerability, considering
+diverse factors such as food access, infrastructure, water access, among
+others. Moreover, a study published by the World Bank in 2016 about
+“Poverty and climate change” drove to develop different depth studies in
+this field (Hallegate et al., 2018).</p>
+<figure>
+<img
+src="/Final%20Project/Dynamic%20impacts%20of%20global%20warming%20(3°C)%20om%20global%20GDP%20(%change/year).png"
+alt="Figure n°. Dynamic effects of global warming (3∘C) on global GDP (% change/year). Source: Kompas et al., 2018." />
+<figcaption aria-hidden="true">Figure n°. Dynamic effects of global
+warming (3∘C) on global GDP (% change/year). Source: Kompas et al.,
+2018.</figcaption>
+</figure>
+<p>Methodology.</p>
+<p>With the aim to address the relation between climate change
+vulnerability, the readiness governance and how these variables impact
+in the GDP (Gross Domestic Product) of the countries, it has been used
+and analyzed the Notre Dame Global Adaptation Initiative Index, which
+includes 182 countries between the years 1995 and 2020 (due to data
+availability). It must be considered that this data has been developed
+regarding the expert’s advice and consultancy (Cheng et al., 2015). In
+first place, the data was collected from different data bases (“raw”
+data), subsequently, has been converted into different indexes,
+normalizing the range of values to a common standard deviation and mean,
+scaling and transforming the data into a prescribed range that will
+oscillate between 0 and 1. Additionally, with the goal to represent the
+real sensitivity of the data, the errors were corrected through the
+linear interpolation and the labelling for the missing data, and it has
+been identified the minimum and maximum baseline (“reference points”)
+for “raw” data, achieving to ease the comparison between the reference
+points and countries. For example, the reference points can be
+non-potable water for human consumption is 0 percent (0), on the other
+hand, potable water for human consumption is 100 percent (1).</p>
+<p>The scale has been developed using the equation below:</p>
+<p>S=|D-|</p>
+<p>In which, Scale “raw” has been represented with “r”, data to “score”
+with “S”, reference point as “Rp”, baseline maximum as “BM”, and
+baseline minimum as “Bm”. Furthermore, the parameter “D” which means
+direction, can also take two values, 0 and 1, representing the opposite
+in some case, for example, when the vulnerability score is close to 0
+means that the country has a high vulnerability against climate change.
+Parallelly, when the score of governance is close to 1 means that the
+country has a high governance (“better governance”). To compute these
+scores has been used the arithmetic mean from the different variables.
+Finally, to get the ND-GAIN score and provide a value between 0 and 100,
+for each country has been subtracted from the readiness score the
+vulnerability score, using the next equation:</p>
+<p>ND GAIN score=(Readiness score-Vulnerability score+1)</p>
+<p>Indicators - variables (Cheng et al., 2015):</p>
+<p>Governance: refers to the effective investment use regarding the
+adaptation against climate change impacts, developing an efficient and
+safe business environment, also, considering the stability of the
+institutions and the civil society arrangements that will manage to
+decrease the investment risks. Therefore, a democracy with high
+governance capacity and stable economy should be able to reassures
+investors that their capital could grow without interruption as long as
+they have the support of public services.</p>
+<p>Climate change vulnerability: This indicator consider how climate
+change negative effects are impacting the countries. However, it must be
+considered that this indicator includes six life-supporting sectors:
+health, water, food, human habitat, ecosystem services, infrastructure,
+and human habitat.</p>
+<p>GDP: Gross Domestic Product.</p>
+<p>To measure the relation between GDP, climate change vulnerability and
+governance, it has been used a multiple regression multivariate model,
+implementing the equation below:</p>
+<p>Y=<em>{0 + }<em>1</em>{1 + }<em>2</em>{2 + </em>  }</p>
+<p>In which Y represents the GDP (dependent variable), _1 represent
+climate change vulnerability, and _2 the governance readiness. For
+instance, the formula applied in this study is:</p>
+<p>GDP=<em>{0 + }Climate change vulnerability</em>{1 + }Governance readiness_{2 +  }</p>
+<p>The implement this formula implies that <em>{n  }is a lineal
+function, besides the constant term of </em>{0 }(intercept), and the
+unobservable <em> variable. Also, the next assumptions have to be
+considered: </em> and the lineal function of _{n  }must be 0 (Urdinez
+and Cruz, 2020), following the formula:</p>
+<p>Εμχ=0</p>
+<p>For each value of the independent variable of interest <em> , the
+average of the unobserved factors will be 0. If these assumptions are
+accomplished it will be possible to observe the impact of </em> in Y,
+maintaining constant the other values (Urdinez and Cruz, 2020).</p>
+<p>Results and Discussion.</p>
+<p>Conclusion.</p>
+<p>Conflict of interest. The author declare that the research was
+conducted in the absence of any commercial or financial relationships
+that could be construed as a potential conflict of interest.</p>
+<p>Data availability statement. The datasets presented in this study are
+open source and can be found in online repositories at <a
+href="https://gain.nd.edu/our-work/country-index/rankings/"
+class="uri">https://gain.nd.edu/our-work/country-index/rankings/</a>.</p>
+<p>Annexes.</p>
+<figure>
+<img
+src="/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histograma%20GDP.PNG"
+alt="Figure n° .Countries GDP histogram" />
+<figcaption aria-hidden="true">Figure n° .Countries GDP
+histogram</figcaption>
+</figure>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histograma%20Governance.PNG"
+alt="Figure n° .Countries Governance readiness histogram" />
+<figcaption aria-hidden="true">Figure n° .Countries Governance readiness
+histogram</figcaption>
+</figure>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histogram%20Vulnerability.PNG"
+alt="Figure n°. Climate change vulnerability histogram" />
+<figcaption aria-hidden="true">Figure n°. Climate change vulnerability
+histogram</figcaption>
+</figure>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Governance-GDP.PNG"
+alt="Figure n°. Scaterrplot Model 1 (GDP-Governance)" />
+<figcaption aria-hidden="true">Figure n°. Scaterrplot Model 1
+(GDP-Governance)</figcaption>
+</figure>
+<h1 id="table-n.-model-1-screenreg-gdp-governance">Table n°. Model 1
+Screenreg (GDP-Governance)</h1>
+<h2 id="model-1">Model 1</h2>
+<p>(Intercept) 0.40 <strong><em> (0.00)<br />
+GDP 0.00 </em></strong> (0.00)<br />
+———————— R^2 0.40<br />
+Adj. R^2 0.40<br />
+Num. obs. 4758<br />
+======================== *** p &lt; 0.001; ** p &lt; 0.01; * p &lt;
+0.05</p>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20CC%20Vulnerability-GDP.PNG"
+alt="Figure n°. Scatterplot Model 2 (Climate change vulnerability – GDP).)" />
+<figcaption aria-hidden="true">Figure n°. Scatterplot Model 2 (Climate
+change vulnerability – GDP).)</figcaption>
+</figure>
+<h1 id="table-n.-model-2-screenreg">Table n°. Model 2 Screenreg</h1>
+<h2 id="model-2">Model 2</h2>
+<p>(Intercept) 69475.42 <strong><em> (1038.81)<br />
+vulnerability -120496.27 </em></strong> (2260.13)<br />
+—————————– R^2 0.38<br />
+Adj. R^2 0.38<br />
+Num. obs. 4654<br />
+============================= *** p &lt; 0.001; ** p &lt; 0.01; * p &lt;
+0.05</p>
+<h1
+id="table-n.-models-screenreg-includes-model-3-gdp-governance-climate-change-vulnerability">Table
+n°. Models screenreg (includes model 3 GDP-governance-Climate change
+vulnerability)</h1>
+<h2 id="model-1-model-2-model-3">Model 1 Model 2 Model 3</h2>
+<p>(Intercept) -17264.64 *** 69475.42 *** 23818.66 <strong><em> (613.97)
+(1038.81) (1885.90)<br />
+governance 65720.93 </em></strong> 42453.27 <strong><em> (1163.42)
+(1500.50)<br />
+vulnerability -120496.27 </em></strong> -65372.97 <strong><em> (2260.13)
+(2880.05)<br />
+———————————————————– R^2 0.40 0.38 0.47<br />
+Adj. R^2 0.40 0.38 0.47<br />
+Num. obs. 4758 4654 4576<br />
+===========================================================
+</em></strong> p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</p>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Residual%20modelo%203.PNG"
+alt="Figure n° Residuals vs fitted values plot (homocedasticity) in model 3 (GDP, governance and vulnerability)." />
+<figcaption aria-hidden="true">Figure n° Residuals vs fitted values plot
+(homocedasticity) in model 3 (GDP, governance and
+vulnerability).</figcaption>
+</figure>
+<p>Table n°. model 3 lm(GDP~1+governance+ vulnerability) Test stat
+Pr(&gt;|Test stat|)<br />
+governance 16.512 &lt; 2.2e-16 <strong><em> vulnerability 11.777 &lt;
+2.2e-16 </em></strong> Tukey test 16.800 &lt; 2.2e-16 *** — Signif.
+codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’
+1</p>
+<figure>
+<img
+src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Residual%20vs%20fitted.PNG"
+alt="Figure n°. Residual vs fitted values plot for lm(GDP~1+governance+ vulnerability)" />
+<figcaption aria-hidden="true">Figure n°. Residual vs fitted values plot
+for lm(GDP~1+governance+ vulnerability)</figcaption>
+</figure>
+<p>References.</p>
+<p>Arent, D., Tol, R., Faust, E., Hella, J., Kumar, S., Strzepek, K.,
+Tóth, F., and Yan D. (2014). Key economic sectors and services. In Field
+CB, Barros VR, Dokken, DJ, Mach KJ, Mastrandrea MD, Bilir TE, Chat-
+terjee M, Ebi KL, Estrada YO, Genova RC, Girma B, Kissel ES, Levy AN,
+MacCracken S, Mastrandrea PR and White LL (eds). Climate Change 2014:
+Impacts, Adaptation, and Vulnerability. Part A: Global and Sectoral
+Aspects. Contribution of Working Group II to the Fifth Assessment Report
+of the Intergov- ernmental Panel of Climate Change. Cambridge, UK and
+New York, NY: Cambridge University Press, pp. 659–708.</p>
+<p>Chen, C., Noble, I., Hellmann, J., Coffee, J., Murillo, M., Chawla,
+N. (2015). Country Index Technical Report. University of Notre Dame
+Global Adaptation Index.</p>
+<p>Claudet J, Bopp L, Cheung WWL, Devillers R, EscobarBriones E, Haugan
+P, Heymans J, Masson-Delmotte V, Matz-Lück N, Miloslavich P, Mullineau
+L, Visbeck M, Watson R, Zivian A, Ansorge I, Araujo M, Aricò S, Bailly
+D, Barbière J, Barnerias C, Bowler C, Brun V, Cazenave A, Diver C, Euzen
+A, Thierno Gaye A, Hilmi N, Ménard F, Moulin C, Muñoz N, Parmentier R,
+Pebayle A, Pörtner H-O, Osvaldina S, Ricard P, Serrão Santos R, Sicre
+M-A, Thiébault S, Thiele T, Troublé R, Turra A, Uku J, Gaill F. (2020).
+A roadmap for using the UN Decade of Ocean Science for Sustainable
+Development in support of science, policy, and action. One Earth
+2(1):34–42.</p>
+<p>Cogan, D.G. (2003). Corporate Governance and Climate Change: Making
+the Connection.</p>
+<p>Dennig, F., Budolfson, M., Fleurbaey, M., Siebert, A., and Socolow,
+R. (2015). Inequality, climate impacts on the future poor, and carbon
+prices. Proceedings of the National Academy of Sciences 112,
+15827–15832. Dollar D and Kraay A (2002) Growth is good for the poor.
+Journal of Economic Growth 7, 195–225.</p>
+<p>Hallegatte S., Fay M., and Barbier E. (2018). Poverty and climate
+change: introduction. Environment and Development Economics (2018), 23,
+217–233 <a href="doi:10.1017/S1355770X18000141"
+class="uri">doi:10.1017/S1355770X18000141</a></p>
+<p>Hilmi, N., Theux-Lowen, N., Crisóstomo, M. (2021) Ocean-Related
+Impacts of Climate Change on Economy. In: Leal Filho W., Azul A.M.,
+Brandli L., Lange Salvia A., Wall T. (eds) Life Below Water.
+Encyclopedia of the UN Sustainable Development Goals. Springer, Cham. <a
+href="https://doi.org/10.1007/978-3-319-71064-8_158-1"
+class="uri">https://doi.org/10.1007/978-3-319-71064-8_158-1</a></p>
+<p>Hope, C. (2006). The marginal impact of CO2 from PAGE2002: an
+integrated assessment model incorporat- ing the IPCC’s five reasons for
+concern. Integrated Assessment Journal 6(1), 19–56.</p>
+<p>Hsiang, S., Kopp, R., Jina, A., Rising, J., Delgado, M., Mohan, S.,
+Rasmussen, D., Muir-Wood, R., Wilson, P., and Oppenheimer, M. (2017).
+Estimating economic damage from climate change in the United States.
+Science 356, 1362–1369.</p>
+<p>Kompas, T., Pham, V. H., &amp; Che, T. N. (2018). The effects of
+climate change on GDP by country and the global economic gains from
+complying with the Paris Climate Accord. Earth’s Future, 6, 1153–1173.
+<a href="https://doi.org/10.1029/2018EF000922"
+class="uri">https://doi.org/10.1029/2018EF000922</a></p>
+<p>Mendelsohn, R., Morrison, W., Schlesinger, M., and Andronova, N.
+(2000). Country-specific market impacts of climate change. Climatic
+Change 45, 553–569.</p>
+<p>Mendelsohn, R., Dinar, A., and Williams, L. (2006). The
+distributional impact of climate change on rich and poor countries.
+Environment and Development Economics 11, 159–178.</p>
+<p>Nordhaus, W. (2014). Estimates of the social cost of carbon: concepts
+and results from the DICE-2013R model and alternative approaches.
+Journal of the Association of Environmental and Resource Economists 1,
+273–312.</p>
+<p>Stern, N. (2006). Stern Review: The Economics of Climate Change.
+Cambridge, UK: Cambridge University Press.</p>
+<p>Tol, R. (2002). Estimates of the damage costs of climate change. Part
+1: benchmark estimates. Environmental and Resource Economics 21(1),
+47–73.</p>
+<p>Tol, R. (2009). The economic effects of climate change. Journal of
+Economic Perspectives 23, 29–51.</p>
+<p>United Nations. (2018). Goal 13: Take urgent action to combat climate
+change and its impacts. Retrieved from <a
+href="http://www.un.org/sustainabledevelopment/climate-change-2/"
+class="uri">http://www.un.org/sustainabledevelopment/climate-change-2/</a>,
+Accessed date: 28 October 2022.</p>
+<p>Urdinez, F., and Cruz, A. (Eds.) (2020). Political Data Science Using
+R: A Practical Guide. CRC Press.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

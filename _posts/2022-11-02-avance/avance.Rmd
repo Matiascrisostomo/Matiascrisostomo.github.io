@@ -1,0 +1,227 @@
+---
+title: "Estimating and modelling the relation between climate change, governance, and GDP"
+description: |
+  Avance de proyecto final.
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 2022-11-02
+output:
+  distill::distill_article:
+    self_contained: false
+editor_options: 
+  chunk_output_type: console
+---
+Estimating and modelling the relation between climate change, governance, and GDP
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Estimating and modelling the relation between climate change, governance, and GDP
+
+
+Abstract.
+
+Climate change has been impacting the development from different countries around the globe, including the GDP, Gini index, and private investments, among others. Therefore, policymakers and governments are playing a crucial role to mitigate these impacts through the creation and implementation of plans and policies, consequently, enhancing the human welfare, population income, and livelihoods.
+Regarding to ND- GAIN Index, this article aims to analyze in 182 countries the relation between the readiness of governance, climate change vulnerability, and GDP, outlining how these variables influence each other. The structure has been proposed to simplify the reading. It has been divided in context and background, methodology, and discussion, which includes the results. 
+
+Keywords: GDP (Gross Domestic Product), climate change vulnerability, governance readiness.
+
+
+Introduction.
+
+During the last decades the cumulative impacts of climate change has been increasing, affecting different global ecosystems (Claudet et al., 2020; Cogan, 2003), playing a fundamental role in human wellbeing and development. Regarding climate change, various countries are facing diverse challenges to adapt (Chen et al., 2015), such as sea-level rises and extreme weather events (Kompas et al., 2018; United Nations, 2018), consequently, worldwide governments and stakeholders are increasing efforts to mitigate these impacts, generating and strengthen policies, strategies, and programs in a local, regional, and global scale. Additionally, the climate change effects has demonstrate to impact in global economy in a considerable manner (Tol, 2002; Hilmi et al., 2021). These impacts are different in every country, some of them are more vulnerable than others, especially those depending (their livelihood, economy, and wellbeing) on nature and their ecosystem services.
+
+The hypothesis of this article has been defined as:
+H_1 A country GDP will be affected detrimentally by the country climate change vulnerability and governance readiness level.
+H_0 A country GDP will not be affected detrimentally by the country climate change vulnerability and governance readiness level.
+
+
+Context and background.
+
+It has been mentioned that the impact of climate change on poor populations represents a minor part of national wealth, being classified many times as invisible (measuring them on GDP). Managing and assessing the vulnerability against climate change requires specific data, studies, and metrics (Hallegate et al., 2018).
+It has always been attracting for policymakers to estimates and understand the economic impacts of climate change. Nevertheless, most of the time, these estimates have been studied in terms of global GDP or the impact on country-level (Arent et al., 2014), not considering how climate change affects human well-being, specially to most developing countries. The value of mitigation and the impacts on human wellbeing will determine the distribution of climate change impacts (Dennig et al., 2015). However, the global distribution of climate change impacts is heterogeneous, not only within countries throughout the globe, also over income classes and occupations (Hallegate et al., 2018). Furthermore, considering and using only the global GDP as a variable to measure the impacts of climate change could probably increase the skew of the study (Mendelsohn et al., 2000; Tol, 2002; Hope, 2006; Mendelsohn et al., 2006; Stern, 2006; Tol, 2009; Nordhaus, 2014; Hsiang et al., 2017; Hallegate et al., 2018). 
+Study climate change impacts on GDP requires a different approach, focused on governance and vulnerability, considering diverse factors such as food access, infrastructure, water access, among others. Moreover, a study published by the World Bank in 2016 about “Poverty and climate change” drove to develop different depth studies in this field (Hallegate et al., 2018).
+
+![Figure n°. Dynamic effects of global warming (3∘C) on global GDP (% change/year). Source: Kompas et al., 2018.](/Final Project/Dynamic impacts of global warming (3°C) om global GDP (%change/year).png)
+
+Methodology.
+
+With the aim to address the relation between climate change vulnerability, the readiness governance and how these variables impact in the GDP (Gross Domestic Product) of the countries, it has been used and analyzed the Notre Dame Global Adaptation Initiative Index, which includes 182 countries between the years 1995 and 2020 (due to data availability). It must be considered that this data has been developed regarding the expert’s advice and consultancy (Cheng et al., 2015).
+In first place, the data was collected from different data bases (“raw” data), subsequently, has been converted into different indexes, normalizing the range of values to a common standard deviation and mean, scaling and transforming the data into a prescribed range that will oscillate between 0 and 1. Additionally, with the goal to represent the real sensitivity of the data, the errors were corrected through the linear interpolation and the labelling for the missing data, and it has been identified the minimum and maximum baseline (“reference points”) for “raw” data, achieving to ease the comparison between the reference points and countries. For example, the reference points can be non-potable water for human consumption is 0 percent (0), on the other hand, potable water for human consumption is 100 percent (1).
+
+The scale has been developed using the equation below:
+
+S=|D-\frac{r\ data-Rp}{BM-Bm}|
+
+In which, Scale “raw” has been represented with “r”, data to “score” with “S”, reference point as “Rp”, baseline maximum as “BM”, and baseline minimum as “Bm”. Furthermore, the parameter “D” which means direction, can also take two values, 0 and 1, representing the opposite in some case, for example, when the vulnerability score is close to 0 means that the country has a high vulnerability against climate change. Parallelly, when the score of governance is close to 1 means that the country has a high governance (“better governance”). To compute these scores has been used the arithmetic mean from the different variables.  Finally, to get the ND-GAIN score and provide a value between 0 and 100, for each country has been subtracted from the readiness score the vulnerability score, using the next equation:
+
+
+ND\ GAIN\ score=(Readiness\ score-Vulnerability\ score+1)\ast50
+
+
+Indicators - variables (Cheng et al., 2015):
+
+Governance: refers to the effective investment use regarding the adaptation against climate change impacts, developing an efficient and safe business environment, also, considering the stability of the institutions and the civil society arrangements that will manage to decrease the investment risks. Therefore, a democracy with high governance capacity and stable economy should be able to reassures investors that their capital could grow without interruption as long as they have the support of public services.
+
+Climate change vulnerability: This indicator consider how climate change negative effects are impacting the countries. However, it must be considered that this indicator includes six life-supporting sectors: health, water, food, human habitat, ecosystem services, infrastructure, and human habitat.
+
+GDP: Gross Domestic Product.
+
+To measure the relation between GDP, climate change vulnerability and governance, it has been used a multiple regression multivariate model, implementing the equation below:
+
+Y=\beta_{0\ +\ }\beta_1\chi_{1\ +\ }\beta_2\chi_{2\ +\ \mu_\ \ }
+
+In which Y represents the GDP (dependent variable), \beta_1 represent climate change vulnerability, and \beta_2 the governance readiness. For instance, the formula applied in this study is:
+
+GDP=\beta_{0\ +\ }Climate\ change\ vulnerability\chi_{1\ +\ }Governance\ readiness\chi_{2\ +\ \ }\mu
+
+The implement this formula implies that \chi_{n\ \ }is a lineal function, besides the constant term of \beta_{0\ }(intercept), and the unobservable \mu_\ variable. Also, the next assumptions have to be considered: \mu_\ and the lineal function of \chi_{n\ \ }must be 0 (Urdinez and Cruz, 2020), following the formula:
+
+Εμχ=0
+
+For each value of the independent variable of interest \chi_\ , the average of the unobserved factors will be 0. If these assumptions are accomplished it will be possible to observe the impact of \chi_\ in Y, maintaining constant the other values (Urdinez and Cruz, 2020).
+
+Results and Discussion.
+
+
+
+Conclusion.
+
+
+
+
+
+Conflict of interest.
+The author declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. 
+
+
+
+
+Data availability statement.
+The datasets presented in this study are open source and can be found in online repositories at https://gain.nd.edu/our-work/country-index/rankings/.
+
+Annexes.
+
+![Figure n° .Countries GDP histogram](/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histograma GDP.PNG)
+
+![Figure n° .Countries Governance readiness histogram](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histograma Governance.PNG)
+
+ 
+![Figure n°. Climate change vulnerability histogram](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histogram Vulnerability.PNG)
+
+
+![Figure n°. Scaterrplot Model 1 (GDP-Governance)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Governance-GDP.PNG)
+
+
+
+Table n°. Model 1 Screenreg (GDP-Governance)
+========================
+             Model 1    
+------------------------
+(Intercept)     0.40 ***
+               (0.00)   
+GDP             0.00 ***
+               (0.00)   
+------------------------
+R^2             0.40    
+Adj. R^2        0.40    
+Num. obs.       4758       
+========================
+*** p < 0.001; ** p < 0.01; * p < 0.05
+
+
+![Figure n°. Scatterplot Model 2 (Climate change vulnerability – GDP).)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot CC Vulnerability-GDP.PNG)
+
+
+Table n°. Model 2 Screenreg
+=============================
+               Model 2       
+-----------------------------
+(Intercept)      69475.42 ***
+                 (1038.81)   
+vulnerability  -120496.27 ***
+                (2260.13)   
+-----------------------------
+R^2                     0.38    
+Adj. R^2                0.38    
+Num. obs.               4654       
+=============================
+*** p < 0.001; ** p < 0.01; * p < 0.05
+
+
+
+
+Table n°. Models screenreg (includes model 3 GDP-governance-Climate change vulnerability)
+===========================================================
+                         Model 1              Model 2              Model 3      
+-----------------------------------------------------------
+(Intercept)           -17264.64 ***          69475.42 ***         23818.66 ***
+                       (613.97)              (1038.81)            (1885.90)   
+governance             65720.93 ***                               42453.27 ***
+                       (1163.42)                                  (1500.50)   
+vulnerability                              -120496.27 ***        -65372.97 ***
+                                            (2260.13)             (2880.05)   
+-----------------------------------------------------------
+R^2                    0.40             0.38            0.47    
+Adj. R^2               0.40             0.38            0.47    
+Num. obs.              4758             4654            4576       
+===========================================================
+*** p < 0.001; ** p < 0.01; * p < 0.05
+
+
+![Figure n° Residuals vs fitted values plot (homocedasticity) in model 3 (GDP, governance and vulnerability).](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Residual modelo 3.PNG) 
+
+
+Table n°.  model 3 lm(GDP~1+governance+ vulnerability)
+                         Test stat Pr(>|Test stat|)    
+governance       16.512        < 2.2e-16 ***
+vulnerability     11.777        < 2.2e-16 ***
+Tukey test         16.800        < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+![Figure n°. Residual vs fitted values plot for lm(GDP~1+governance+ vulnerability)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Residual vs fitted.PNG) 
+
+
+
+References.
+
+Arent, D., Tol, R., Faust, E., Hella, J., Kumar, S., Strzepek, K., Tóth, F., and Yan D. (2014). Key economic sectors and services. In Field CB, Barros VR, Dokken, DJ, Mach KJ, Mastrandrea MD, Bilir TE, Chat- terjee M, Ebi KL, Estrada YO, Genova RC, Girma B, Kissel ES, Levy AN, MacCracken S, Mastrandrea PR and White LL (eds). Climate Change 2014: Impacts, Adaptation, and Vulnerability. Part A: Global and Sectoral Aspects. Contribution of Working Group II to the Fifth Assessment Report of the Intergov- ernmental Panel of Climate Change. Cambridge, UK and New York, NY: Cambridge University Press, pp. 659–708.
+
+Chen, C., Noble, I., Hellmann, J., Coffee, J., Murillo, M., Chawla, N. (2015). Country Index Technical Report. University of Notre Dame Global Adaptation Index.
+
+Claudet J, Bopp L, Cheung WWL, Devillers R, EscobarBriones E, Haugan P, Heymans J, Masson-Delmotte V, Matz-Lück N, Miloslavich P, Mullineau L, Visbeck M, Watson R, Zivian A, Ansorge I, Araujo M, Aricò S, Bailly D, Barbière J, Barnerias C, Bowler C, Brun V, Cazenave A, Diver C, Euzen A, Thierno Gaye A, Hilmi N, Ménard F, Moulin C, Muñoz N, Parmentier R, Pebayle A, Pörtner H-O, Osvaldina S, Ricard P, Serrão Santos R, Sicre M-A, Thiébault S, Thiele T, Troublé R, Turra A, Uku J, Gaill F. (2020). A roadmap for using the UN Decade of Ocean Science for Sustainable Development in support of science, policy, and action. One Earth 2(1):34–42.
+
+Cogan, D.G. (2003). Corporate Governance and Climate Change: Making the Connection.
+
+Dennig, F., Budolfson, M., Fleurbaey, M., Siebert, A., and Socolow, R. (2015). Inequality, climate impacts on the future poor, and carbon prices. Proceedings of the National Academy of Sciences 112, 15827–15832. Dollar D and Kraay A (2002) Growth is good for the poor. Journal of Economic Growth 7, 195–225.
+
+Hallegatte S., Fay M., and Barbier E. (2018). Poverty and climate change: introduction. Environment and Development Economics (2018), 23, 217–233 doi:10.1017/S1355770X18000141 
+
+Hilmi, N., Theux-Lowen, N., Crisóstomo, M. (2021) Ocean-Related Impacts of Climate Change on Economy. In: Leal Filho W., Azul A.M., Brandli L., Lange Salvia A., Wall T. (eds) Life Below Water. Encyclopedia of the UN Sustainable Development Goals. Springer, Cham. https://doi.org/10.1007/978-3-319-71064-8_158-1
+
+Hope, C. (2006). The marginal impact of CO2 from PAGE2002: an integrated assessment model incorporat- ing the IPCC’s five reasons for concern. Integrated Assessment Journal 6(1), 19–56.
+
+Hsiang, S., Kopp, R., Jina, A., Rising, J., Delgado, M., Mohan, S., Rasmussen, D., Muir-Wood, R., Wilson, P., and Oppenheimer, M. (2017). Estimating economic damage from climate change in the United States. Science 356, 1362–1369.
+
+Kompas, T., Pham, V. H., & Che, T. N. (2018). The effects of climate change on GDP by country and the global economic gains from complying with the Paris Climate Accord. Earth’s Future, 6, 1153–1173. https://doi.org/10.1029/2018EF000922
+
+Mendelsohn, R., Morrison, W., Schlesinger, M., and Andronova, N. (2000). Country-specific market impacts of climate change. Climatic Change 45, 553–569.
+
+Mendelsohn, R., Dinar, A., and Williams, L. (2006). The distributional impact of climate change on rich and poor countries. Environment and Development Economics 11, 159–178.
+
+Nordhaus, W. (2014). Estimates of the social cost of carbon: concepts and results from the DICE-2013R model and alternative approaches. Journal of the Association of Environmental and Resource Economists 1, 273–312.
+
+Stern, N. (2006). Stern Review: The Economics of Climate Change. Cambridge, UK: Cambridge University
+Press.
+
+Tol, R. (2002). Estimates of the damage costs of climate change. Part 1: benchmark estimates. Environmental and Resource Economics 21(1), 47–73.
+
+Tol, R. (2009). The economic effects of climate change. Journal of Economic Perspectives 23, 29–51.
+
+United Nations. (2018). Goal 13: Take urgent action to combat climate change and its impacts. Retrieved from http://www.un.org/sustainabledevelopment/climate-change-2/, Accessed date: 28 October 2022.
+
+Urdinez, F., and Cruz, A. (Eds.) (2020). Political Data Science Using R: A Practical Guide. CRC Press.
+
