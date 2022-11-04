@@ -119,7 +119,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["avance_files/anchor-4.2.2/anchor.min.js","avance_files/bowser-1.9.3/bowser.min.js","avance_files/distill-2.2.21/template.v2.js","avance_files/header-attrs-2.16/header-attrs.js","avance_files/jquery-3.6.0/jquery-3.6.0.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.map","avance_files/popper-2.6.0/popper.min.js","avance_files/tippy-6.2.7/tippy-bundle.umd.min.js","avance_files/tippy-6.2.7/tippy-light-border.css","avance_files/tippy-6.2.7/tippy.css","avance_files/tippy-6.2.7/tippy.umd.min.js","avance_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["avance_files/anchor-4.2.2/anchor.min.js","avance_files/bowser-1.9.3/bowser.min.js","avance_files/distill-2.2.21/template.v2.js","avance_files/header-attrs-2.16/header-attrs.js","avance_files/jquery-3.6.0/jquery-3.6.0.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.js","avance_files/jquery-3.6.0/jquery-3.6.0.min.map","avance_files/popper-2.6.0/popper.min.js","avance_files/tippy-6.2.7/tippy-bundle.umd.min.js","avance_files/tippy-6.2.7/tippy-light-border.css","avance_files/tippy-6.2.7/tippy.css","avance_files/tippy-6.2.7/tippy.umd.min.js","avance_files/webcomponents-2.0.0/webcomponents.js","Dynamic impacts of global warming (3°C) om global GDP (%change:year).png","Histograma GDP.png","Histograma Governance.png","Histograma Vulnerability.png","Rplot CC Vulnerability-GDP.png","Rplot Governance-GDP.png","Rplot Modelo 1 Valores predichos y residuos.png","Rplot Residual modelo 3.png","Rplot Residuals vs fitted.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2200,7 +2200,7 @@ others. Moreover, a study published by the World Bank in 2016 about
 this field (Hallegate et al., 2018).</p>
 <figure>
 <img
-src="/Final%20Project/Dynamic%20impacts%20of%20global%20warming%20(3°C)%20om%20global%20GDP%20(%change/year).png"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Dynamic%20impacts%20of%20global%20warming%20(3°C)%20om%20global%20GDP%20(%change/year).png"
 alt="Figure n°. Dynamic effects of global warming (3∘C) on global GDP (% change/year). Source: Kompas et al., 2018." />
 <figcaption aria-hidden="true">Figure n°. Dynamic effects of global
 warming (3∘C) on global GDP (% change/year). Source: Kompas et al.,
@@ -2227,7 +2227,8 @@ points and countries. For example, the reference points can be
 non-potable water for human consumption is 0 percent (0), on the other
 hand, potable water for human consumption is 100 percent (1).</p>
 <p>The scale has been developed using the equation below:</p>
-<p>S=|D-|</p>
+<p><span class="math display">\[S=|D-\frac{r\
+data-Rp}{BM-Bm}|\]</span></p>
 <p>In which, Scale “raw” has been represented with “r”, data to “score”
 with “S”, reference point as “Rp”, baseline maximum as “BM”, and
 baseline minimum as “Bm”. Furthermore, the parameter “D” which means
@@ -2240,7 +2241,8 @@ scores has been used the arithmetic mean from the different variables.
 Finally, to get the ND-GAIN score and provide a value between 0 and 100,
 for each country has been subtracted from the readiness score the
 vulnerability score, using the next equation:</p>
-<p>ND GAIN score=(Readiness score-Vulnerability score+1)</p>
+<p><span class="math display">\[ND\ GAIN\ score=(Readiness\
+score-Vulnerability\ score+1)\ast50\]</span></p>
 <p>Indicators - variables (Cheng et al., 2015):</p>
 <p>Governance: refers to the effective investment use regarding the
 adaptation against climate change impacts, developing an efficient and
@@ -2259,17 +2261,20 @@ and human habitat.</p>
 <p>To measure the relation between GDP, climate change vulnerability and
 governance, it has been used a multiple regression multivariate model,
 implementing the equation below:</p>
-<p>Y=<em>{0 + }<em>1</em>{1 + }<em>2</em>{2 + </em>  }</p>
+<p><span class="math display">\[Y=\beta_{0\ +\ }\beta_1\chi_{1\ +\
+}\beta_2\chi_{2\ +\ \mu_\ \ }\]</span></p>
 <p>In which Y represents the GDP (dependent variable), _1 represent
 climate change vulnerability, and _2 the governance readiness. For
 instance, the formula applied in this study is:</p>
-<p>GDP=<em>{0 + }Climate change vulnerability</em>{1 + }Governance readiness_{2 +  }</p>
+<p><span class="math display">\[GDP=\beta_{0\ +\ }Climate\ change\
+vulnerability\chi_{1\ +\ }Governance\ readiness\chi_{2\ +\ \
+}\mu\]</span></p>
 <p>The implement this formula implies that <em>{n  }is a lineal
 function, besides the constant term of </em>{0 }(intercept), and the
 unobservable <em> variable. Also, the next assumptions have to be
 considered: </em> and the lineal function of _{n  }must be 0 (Urdinez
 and Cruz, 2020), following the formula:</p>
-<p>Εμχ=0</p>
+<p><span class="math display">\[Εμχ=0\]</span></p>
 <p>For each value of the independent variable of interest <em> , the
 average of the unobserved factors will be 0. If these assumptions are
 accomplished it will be possible to observe the impact of </em> in Y,
@@ -2286,28 +2291,28 @@ class="uri">https://gain.nd.edu/our-work/country-index/rankings/</a>.</p>
 <p>Annexes.</p>
 <figure>
 <img
-src="/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histograma%20GDP.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histograma%20GDP.PNG"
 alt="Figure n° .Countries GDP histogram" />
 <figcaption aria-hidden="true">Figure n° .Countries GDP
 histogram</figcaption>
 </figure>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histograma%20Governance.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histograma%20Governance.PNG"
 alt="Figure n° .Countries Governance readiness histogram" />
 <figcaption aria-hidden="true">Figure n° .Countries Governance readiness
 histogram</figcaption>
 </figure>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Histogram%20Vulnerability.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histogram%20Vulnerability.PNG"
 alt="Figure n°. Climate change vulnerability histogram" />
 <figcaption aria-hidden="true">Figure n°. Climate change vulnerability
 histogram</figcaption>
 </figure>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Governance-GDP.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot%20Governance-GDP.PNG"
 alt="Figure n°. Scaterrplot Model 1 (GDP-Governance)" />
 <figcaption aria-hidden="true">Figure n°. Scaterrplot Model 1
 (GDP-Governance)</figcaption>
@@ -2324,7 +2329,7 @@ Num. obs. 4758<br />
 0.05</p>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20CC%20Vulnerability-GDP.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Final%20Project/Rplot%20CC%20Vulnerability-GDP.PNG"
 alt="Figure n°. Scatterplot Model 2 (Climate change vulnerability – GDP).)" />
 <figcaption aria-hidden="true">Figure n°. Scatterplot Model 2 (Climate
 change vulnerability – GDP).)</figcaption>
@@ -2356,7 +2361,7 @@ Num. obs. 4758 4654 4576<br />
 </em></strong> p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</p>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Residual%20modelo%203.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot%20Residual%20modelo%203.PNG"
 alt="Figure n° Residuals vs fitted values plot (homocedasticity) in model 3 (GDP, governance and vulnerability)." />
 <figcaption aria-hidden="true">Figure n° Residuals vs fitted values plot
 (homocedasticity) in model 3 (GDP, governance and
@@ -2370,7 +2375,7 @@ codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 
 1</p>
 <figure>
 <img
-src="/Escritorio/UC/Primer%20año/Medición%20y%20análisis%20dimensional%20de%20datos%20políticos/Final%20Project/Rplot%20Residual%20vs%20fitted.PNG"
+src="/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot%20Residual%20vs%20fitted.PNG"
 alt="Figure n°. Residual vs fitted values plot for lm(GDP~1+governance+ vulnerability)" />
 <figcaption aria-hidden="true">Figure n°. Residual vs fitted values plot
 for lm(GDP~1+governance+ vulnerability)</figcaption>
@@ -2460,6 +2465,15 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

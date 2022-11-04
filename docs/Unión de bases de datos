@@ -1,0 +1,26 @@
+Utilizaremos las funciones de tidiverse, por lo tanto, cargamos la librería
+library("tidyverse")
+
+Cargamos nuestras bases de datos
+library("readr")
+GDP <- read_csv("score.csv")
+vulnerability <- read_csv("vulnerability.csv")
+gov <- read_csv("governance.csv")
+
+Revisamos las bases de datos con la función Skim del parquete skimr
+skimr::skim(GDP)
+skimr::skim(vulnerability)
+skimr::skim(gov)
+
+Cambiamos nuestra base de datos, de ancha a larga 
+
+df_long_cv <- vulnerability %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "vulnerability")
+df_long_gov <- gov %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "governance")
+df_long_gdp <- GDP %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "GDP")
+
+Unimos nuestras bases de datos
+df_general <- left_join(df_long_cv, df_long_gdp, df_long_go, by = c("ISO3", "Name", "year"))
+df_general_real <- left_join(df_general, df_long_gov, by = c("ISO3", "Name", "year"))

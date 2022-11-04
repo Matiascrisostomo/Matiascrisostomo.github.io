@@ -44,7 +44,7 @@ It has been mentioned that the impact of climate change on poor populations repr
 It has always been attracting for policymakers to estimates and understand the economic impacts of climate change. Nevertheless, most of the time, these estimates have been studied in terms of global GDP or the impact on country-level (Arent et al., 2014), not considering how climate change affects human well-being, specially to most developing countries. The value of mitigation and the impacts on human wellbeing will determine the distribution of climate change impacts (Dennig et al., 2015). However, the global distribution of climate change impacts is heterogeneous, not only within countries throughout the globe, also over income classes and occupations (Hallegate et al., 2018). Furthermore, considering and using only the global GDP as a variable to measure the impacts of climate change could probably increase the skew of the study (Mendelsohn et al., 2000; Tol, 2002; Hope, 2006; Mendelsohn et al., 2006; Stern, 2006; Tol, 2009; Nordhaus, 2014; Hsiang et al., 2017; Hallegate et al., 2018). 
 Study climate change impacts on GDP requires a different approach, focused on governance and vulnerability, considering diverse factors such as food access, infrastructure, water access, among others. Moreover, a study published by the World Bank in 2016 about “Poverty and climate change” drove to develop different depth studies in this field (Hallegate et al., 2018).
 
-![Figure n°. Dynamic effects of global warming (3∘C) on global GDP (% change/year). Source: Kompas et al., 2018.](/Final Project/Dynamic impacts of global warming (3°C) om global GDP (%change/year).png)
+![Figure n°. Dynamic effects of global warming (3∘C) on global GDP (% change/year). Source: Kompas et al., 2018.](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Dynamic impacts of global warming (3°C) om global GDP (%change/year).png)
 
 Methodology.
 
@@ -53,12 +53,12 @@ In first place, the data was collected from different data bases (“raw” data
 
 The scale has been developed using the equation below:
 
-S=|D-\frac{r\ data-Rp}{BM-Bm}|
+$$S=|D-\frac{r\ data-Rp}{BM-Bm}|$$
 
 In which, Scale “raw” has been represented with “r”, data to “score” with “S”, reference point as “Rp”, baseline maximum as “BM”, and baseline minimum as “Bm”. Furthermore, the parameter “D” which means direction, can also take two values, 0 and 1, representing the opposite in some case, for example, when the vulnerability score is close to 0 means that the country has a high vulnerability against climate change. Parallelly, when the score of governance is close to 1 means that the country has a high governance (“better governance”). To compute these scores has been used the arithmetic mean from the different variables.  Finally, to get the ND-GAIN score and provide a value between 0 and 100, for each country has been subtracted from the readiness score the vulnerability score, using the next equation:
 
 
-ND\ GAIN\ score=(Readiness\ score-Vulnerability\ score+1)\ast50
+$$ND\ GAIN\ score=(Readiness\ score-Vulnerability\ score+1)\ast50$$
 
 
 Indicators - variables (Cheng et al., 2015):
@@ -71,15 +71,15 @@ GDP: Gross Domestic Product.
 
 To measure the relation between GDP, climate change vulnerability and governance, it has been used a multiple regression multivariate model, implementing the equation below:
 
-Y=\beta_{0\ +\ }\beta_1\chi_{1\ +\ }\beta_2\chi_{2\ +\ \mu_\ \ }
+$$Y=\beta_{0\ +\ }\beta_1\chi_{1\ +\ }\beta_2\chi_{2\ +\ \mu_\ \ }$$
 
 In which Y represents the GDP (dependent variable), \beta_1 represent climate change vulnerability, and \beta_2 the governance readiness. For instance, the formula applied in this study is:
 
-GDP=\beta_{0\ +\ }Climate\ change\ vulnerability\chi_{1\ +\ }Governance\ readiness\chi_{2\ +\ \ }\mu
+$$GDP=\beta_{0\ +\ }Climate\ change\ vulnerability\chi_{1\ +\ }Governance\ readiness\chi_{2\ +\ \ }\mu$$
 
 The implement this formula implies that \chi_{n\ \ }is a lineal function, besides the constant term of \beta_{0\ }(intercept), and the unobservable \mu_\ variable. Also, the next assumptions have to be considered: \mu_\ and the lineal function of \chi_{n\ \ }must be 0 (Urdinez and Cruz, 2020), following the formula:
 
-Εμχ=0
+$$Εμχ=0$$
 
 For each value of the independent variable of interest \chi_\ , the average of the unobserved factors will be 0. If these assumptions are accomplished it will be possible to observe the impact of \chi_\ in Y, maintaining constant the other values (Urdinez and Cruz, 2020).
 
@@ -104,15 +104,15 @@ The datasets presented in this study are open source and can be found in online 
 
 Annexes.
 
-![Figure n° .Countries GDP histogram](/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histograma GDP.PNG)
+![Figure n° .Countries GDP histogram](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histograma GDP.PNG)
 
-![Figure n° .Countries Governance readiness histogram](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histograma Governance.PNG)
+![Figure n° .Countries Governance readiness histogram](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histograma Governance.PNG)
 
  
-![Figure n°. Climate change vulnerability histogram](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Histogram Vulnerability.PNG)
+![Figure n°. Climate change vulnerability histogram](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Histogram Vulnerability.PNG)
 
 
-![Figure n°. Scaterrplot Model 1 (GDP-Governance)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Governance-GDP.PNG)
+![Figure n°. Scaterrplot Model 1 (GDP-Governance)](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot Governance-GDP.PNG)
 
 
 
@@ -132,7 +132,7 @@ Num. obs.       4758
 *** p < 0.001; ** p < 0.01; * p < 0.05
 
 
-![Figure n°. Scatterplot Model 2 (Climate change vulnerability – GDP).)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot CC Vulnerability-GDP.PNG)
+![Figure n°. Scatterplot Model 2 (Climate change vulnerability – GDP).)](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Final Project/Rplot CC Vulnerability-GDP.PNG)
 
 
 Table n°. Model 2 Screenreg
@@ -171,7 +171,7 @@ Num. obs.              4758             4654            4576
 *** p < 0.001; ** p < 0.01; * p < 0.05
 
 
-![Figure n° Residuals vs fitted values plot (homocedasticity) in model 3 (GDP, governance and vulnerability).](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Residual modelo 3.PNG) 
+![Figure n° Residuals vs fitted values plot (homocedasticity) in model 3 (GDP, governance and vulnerability).](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot Residual modelo 3.PNG) 
 
 
 Table n°.  model 3 lm(GDP~1+governance+ vulnerability)
@@ -182,7 +182,7 @@ Tukey test         16.800        < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-![Figure n°. Residual vs fitted values plot for lm(GDP~1+governance+ vulnerability)](/Escritorio/UC/Primer año/Medición y análisis dimensional de datos políticos/Final Project/Rplot Residual vs fitted.PNG) 
+![Figure n°. Residual vs fitted values plot for lm(GDP~1+governance+ vulnerability)](/Matiascrisostomo.github.io/_posts/2022-11-02-avance/Rplot Residual vs fitted.PNG) 
 
 
 
