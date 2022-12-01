@@ -1,0 +1,371 @@
+library("tidyverse")
+library("readr")
+GDP <- read_csv("score.csv")
+vulnerability <- read_csv("vulnerability.csv")
+gov <- read_csv("governance.csv")
+
+skimr::skim(GDP)
+skimr::skim(vulnerability)
+skimr::skim(gov)
+
+df_long_cv <- vulnerability %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "vulnerability")
+df_long_gov <- gov %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "governance")
+df_long_gdp <- GDP %>% 
+  pivot_longer(cols = -c("ISO3", "Name"), names_to = "year", values_to = "GDP")
+
+library("remotes")
+remotes:: install_github('vincentarelbundock/countrycode') 
+
+df_general <- left_join(df_long_cv, df_long_gdp, df_long_gov, by = c("ISO3", "Name", "year"))
+df_general_real <- left_join(df_general, df_long_gov, by = c("ISO3", "Name", "year"))
+
+
+lm(GDP~1+governance, data = df_general_real)
+modelo_1 <- lm(GDP~1+governance, data = df_general_real)
+class("modelo_1")
+summary("modelo_1")
+screenreg(modelo_1)
+df_general_real %>%
+  ggplot(aes(x = GDP, y = governance)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F, color = "#FF3030") +
+  labs(x = "GDP", y = "Governance readiness")
+ 
+``` 
+lm(GDP~1+vulnerability, data = df_general_real)
+modelo_2 <- lm(GDP~1+vulnerability, data = df_general_real)
+class("modelo_2")
+summary("modelo_2")
+screenreg(modelo_2)
+df_general_real %>%
+  ggplot(aes(x = vulnerability, y = GDP)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F, color = "#FF3030") +
+  labs(x = "Climate change vulnerability", y = "GDP")
+
+Modelo lineal multiple:
+  
+  ```{r}
+modelo_1 <- lm(GDP~1+governance, data = df_general_real)
+modelo_2 <- lm(GDP~1+vulnerability, data = df_general_real)
+modelo_3 <- lm (GDP~1+governance+ vulnerability, data = df_general_real)
+modelos <- list(modelo_1,modelo_2,modelo_3)
+screenreg(modelos)
+ggplot(mapping = aes(x = modelo_1$fitted.values, y = modelo_1$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+ggplot(mapping = aes(x = modelo_2$fitted.values, y = modelo_2$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+ggplot(mapping = aes(x = modelo_3$fitted.values, y = modelo_3$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "blue")
+car::residualPlots(modelo_1)
+car::residualPlots(modelo_2)
+car::residualPlots(modelo_3)
+```
+
+Evaluación de supuestos:
+  
+  ```{r}
+ggplot(df_general_real,aes(GDP))+
+  geom_histogram()+
+  theme_linedraw()+
+  geom_histogram(color = "#00b4d8", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(x = "Countries GDP", y = "Frequency")
+
+ggplot(df_general_real,aes(governance))+
+  geom_histogram()+
+  theme_linedraw()+
+  geom_histogram(color = "#1d3557", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(x = "Governance readiness", y = "Frequency")
+  #labs(title = "Figura 7. Histogram Governance readiness.", x = "Governance readiness", y = "Frequency")
+
+ggplot(df_general_real,aes(vulnerability))+
+  geom_histogram()+
+  theme_linedraw()+
+  geom_histogram(color = "#1d3557", fill = "#457b9d", alpha = 0.4)+ # Colores
+  labs(x = "Climate change vulnerability.", y = "Frequency")
+
+
+plot(modelo_1, which = 1)
+plot(modelo_2, which = 1)
+plot(modelo_3, which = 1)
+
+qqnorm(estimadores_obs$residual)
+qqnorm(GDP, xlab = "", ylab = "",
+       main = "GDP", col = "firebrick")
+qqline(GDP)
+qqnorm(vulnerability, xlab = "", ylab = "",
+       main = "Climate change vulnerability", col = "springgreen4")
+qqline(vulnerability)
+
+#histograma -> normalidad
+#ggplot -> linealidad
+#car -> homocedasticidad
+#aplicar a todas las variables
+
+#hacer un scatterplot para ver la distribución y ver con QQPLOT
+#positivo (poner log y la variable)
+#negativo (poner ^2 y la variable)
+library(corrplot)
+library("psych")
+corPlot(df_ejercicio, cex = 1.2, main = "Correlation Matrix")
+
+
+cor(na.omit(df_general_real))
+ggcorr(GDP,vulnerability, label = T)
+cor(vulnerability, GDP, use='complete.obs')
+library("corrplot")
+
+
+library(tidyverse)
+library(sjmisc)
+library(factoextra)
+library(FactoMineR)
+library(GGally)
+library(cluster)
+library(NbClust) # Cálculo de índices
+library(fpc) # Clusters con iteraciones
+library(dendextend)
+
+
+df_general_real[]<- lapply(df_general_real, function(x) as.numeric(as.character(x)))
+df_ejercicio <- df_general_real %>% select(!1:3)
+
+cor(na.omit(df_ejercicio)) #Correlaciones: es necesario omitir los NA. 
+ggcorr(df_ejercicio, label = T) #NA se omiten automáticamente
+
+
+pca_1 <- PCA(df_ejercicio, graph = F)
+pca_1
+
+### Pesos relativos
+
+```{r}
+get_eig(pca_1)
+```
+
+### Scree plot:
+```{r}
+fviz_eig(pca_1, choice = "eigenvalue", addlabels = T)
+```
+
+### Biplots (combinaciones posibles)
+
+```{r}
+fviz_pca(pca_1, axes = c(1, 2), label = "var")
+
+fviz_pca(pca_1, axes = c(1, 3), label = "var")
+
+fviz_pca(pca_1, axes = c(2, 3), label = "var")
+```
+
+### Contribuciones de las variables a cada componente principal:
+
+**Si es que las contribuciones fuesen uniformes, todas estarían en la línea de referencia.**
+  
+#Cómo contribuye cada variable para cada dimensión:
+  
+  1. Dimensión 1:
+  
+  ```{r}
+fviz_contrib(pca_1, choice = "var", axes = 1)
+```
+
+1. Dimensión 2:
+  
+  ```{r}
+fviz_contrib(pca_1, choice = "var", axes = 2)
+```
+
+3. Dimensión 3:
+  
+  ```{r}
+fviz_contrib(pca_1, choice = "var", axes = 3)
+```
+#Teniendo en consideración las preguntas, ¿podemos ver algún tipo de patrón en cada una de las dimensiones revisadas?
+  
+#Los scores que asignan las dimensiones a cada observación:
+  
+  ```{r}
+head(pca_1$var$coord)
+```
+  
+#Si revisamos nuevamente el gráfico:
+  
+  ```{r}
+fviz_contrib(pca_1, choice = "var", axes = 1)
+``
+#Asignar nombre a las variables
+  
+  
+  
+  ### Análisis factorial:
+  
+  ```{r}
+fa <-  factanal(x        = na.omit(df_ejercicio),  
+                factors  = 1,
+                rotation = "varimax", 
+                scores   = "regression")
+fa
+```
+  
+  **Esto es subjetivo**, pero tienen que explicar diferentes características.
+
+#Buscamos que las variables estén lo más cerca de 1:
+
+fviz_pca_var(pca_1, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+
+fviz_pca_var(pca_1, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+
+#Ver etiquetas y distribución
+sjPlot::view_df(df_ejercicio, show.prc = T)      
+
+ml <- fa(r = df_ejercicio, # Puede ser una base de datos o una matriz de datos.
+         nfactors = 3,
+         rotate = "varimax", # Suele ser la más utilizada
+         fm = "ml", 
+         residuals = T)
+
+ml
+
+fa.diagram(ml)
+
+#Lo primero que queremos hacer, es escalar los datos. Esto es importante porque queremos que las distancias sean más balanceadas.
+
+df_general_real_ <- scale(df_general_real) #general_real_ es la scale de general_real
+head(df_general_real_) 
+df_ejercicio_1 <- scale(df_ejercicio)
+head(df_ejercicio_1)
+
+#Del paquete `fpc`:
+  
+k1 <- kmeansruns(df_general_real_, krange = 2, runs = 100)
+k11 <- kmeansruns(df_ejercicio_1, krange = 2, runs = 100)
+# Suma de errores al cuadrado entre clusters: la separación entre los clusters explica el 47.5% de los datos
+```{r}
+fviz_cluster(k1, data = df_general_real_)
+fviz_cluster(k11, data = df_ejercicio_1)
+```
+
+```{r}
+k2 <- kmeansruns(df_general_real_, krange = 3, runs = 100)
+fviz_cluster(k2, data = df_general_real_)
+```
+
+```{r}
+k3 <- kmeansruns(df_general_real_, krange = 4, runs = 100)
+fviz_cluster(k3, data = df_general_real_)
+```
+#Calcular la matriz de distancia con factoextra
+  
+d <- dist(df_general_real_, method = "euclidean")
+
+#Evaluar el número de clusters:
+  
+  ### Método de codos
+```{r}  
+fviz_nbclust(df_general_real_, kmeans, method = "wss") +
+  labs(subtitle = "Método codos")
+```
+
+### Método de brecha estadística
+```{r}
+fviz_nbclust(df_general_real_, kmeans, method = "gap_stat") +
+  labs(subtitle = "Método de brecha estatística")
+```
+
+### Método de silueta promedio
+```{r}
+fviz_nbclust(df_general_real_, kmeans, method = "silhouette") +
+  labs(subtitle = "Método de silueta promedio")
+```
+
+# Método completo:
+```{r}
+res_nbclust <- NbClust(df_general_real_, distance = "euclidean", min.nc = 2, max.nc = 7, method = "complete", index = "all")
+
+fviz_nbclust(res_nbclust) +
+  theme_minimal()
+```
+
+#Ahora, podemos hacer un clusterboot para ver la estabilidad de los clusters que hemos seleccionado:
+```{r}  
+cf2 <- clusterboot(df_general_real_, B = 100, bootmethod = c("jitter", "boot"), clustermethod = kmeansCBI, krange = 2, seed = 999)
+
+print(cf2)
+```
+#¿Qué opinamos del coeficiente de Jaccard?
+  
+#¿Es estable?
+```{r}  
+cf3 <- clusterboot(df_general_real_, B = 100, bootmethod = c("jitter", "boot"), clustermethod = kmeansCBI, krange = 3, seed = 999)
+
+print(cf3)
+```
+#qué opinamos sobre esto?
+```{r}  
+cf4 <- clusterboot(df_general_real_, B = 100, bootmethod = c("jitter", "boot"), clustermethod = kmeansCBI, krange = 4, seed = 999)
+
+print(cf4)
+```
+
+#agregardatos %>% 
+  ggplot(aes(x = factor(k3$cluster), y = Murder, fill = factor(k3$cluster))) +
+  geom_boxplot() +
+  geom_point() +
+  theme_minimal()
+
+
+#Haremos un ejercicio de clustering preliminar con jerarquía
+
+d <- dist(df_general_real_, method = "euclidean")
+
+
+#Esta matriz nos indica cuanto se parecen y en cuánto se diferencian los casos.
+```{r}
+hc1 <- hclust(d, method = "complete") # Promedio entre todos los puntos
+
+
+hc2 <- hclust(d, method = "ward.D2") 
+```
+
+#Hacemos el dendograma
+```{r}  
+plot(hc1, cex = 0.6, hang = -1)
+plot(hc2, cex = 0.6, hang = -1)
+```
+
+#método particional:
+  
+```{r}
+km.out <- kmeans(df_general_real_, 
+                 centers = 4,
+                 nstart = 100)
+km.out
+```
+
+#visualización
+```{r}  
+km.cluster <- km.out$cluster
+```
+
+```{r}
+fviz_cluster(list(data=df_general_real_, cluster = km.cluster)) +
+  theme_minimal()
+```
+
+```{r}
+silueta <- silhouette(km.out$cluster, dist(df_general_real_))
+fviz_silhouette(silueta)
+```
